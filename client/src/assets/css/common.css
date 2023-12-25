@@ -1,0 +1,30 @@
+/* tailwind */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* 폰트모음 */
+
+@font-face {
+    font-family: "GongGothicMedium";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "D2Coding";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* common */
+body {
+    padding: 0;
+    font-family: "GongGothicMedium";
+}
+
+.bold {
+    font-weight: 700;
+}
