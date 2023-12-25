@@ -1,16 +1,17 @@
-package com.example.janackoverflow.global.config;
+package com.example.gateway.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.reactive.config.CorsRegistry;
+import org.springframework.web.reactive.config.WebFluxConfigurer;
+
 
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class WebConfig implements WebFluxConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
-				.allowedOrigins("http://localhost:5173", "http://localhost:8088")
+				.allowedOrigins("http://localhost:5173", "http://localhost:8081", "http://localhost:8088")
 				.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
 				.allowCredentials(true) //쿠키 포함, 모든 인증 방식 요청 허용
 				.maxAge(3000);

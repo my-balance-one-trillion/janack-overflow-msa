@@ -13,7 +13,7 @@ import VueHighlightJS from 'vue3-highlightjs'
 // import 'highlight.js/styles/solarized-light.css'
 
 //axios 기본설정
-axios.defaults.baseURL = "http://localhost:8081/main-service";
+axios.defaults.baseURL = "http://localhost:8088/main-service";
 //pinia 기본설정
 const pinia = createPinia();
 const app = createApp(App);

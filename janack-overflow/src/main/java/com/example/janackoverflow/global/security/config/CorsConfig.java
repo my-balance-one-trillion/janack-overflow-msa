@@ -25,6 +25,8 @@ public class CorsConfig {
 
         //허용된 오리진(출처) 도메인 설정
         corsConfiguration.addAllowedOrigin("http://localhost:5173");
+        corsConfiguration.addAllowedOrigin("http://localhost:8088");
+        corsConfiguration.addAllowedOrigin("http://localhost:8081");
 
         corsConfiguration.addAllowedOriginPattern("/**");
 
