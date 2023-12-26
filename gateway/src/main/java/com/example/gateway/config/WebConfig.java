@@ -10,11 +10,11 @@ public class WebConfig implements WebFluxConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**")
-				.allowedOrigins("http://localhost:5173", "http://localhost:8081", "http://localhost:8088")
-				.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
-				.allowCredentials(true) //쿠키 포함, 모든 인증 방식 요청 허용
-				.maxAge(3000);
+//		registry.addMapping("/**")
+//				.allowedOrigins("http://localhost:5173", "http://localhost:8081", "http://localhost:8088")
+//				.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
+//				.allowCredentials(true) //쿠키 포함, 모든 인증 방식 요청 허용
+//				.maxAge(3000);
 
 //		addMapping - CORS를 적용할 url의 패턴을 정의 (/** 로 모든 패턴을 가능하게 함)
 //		allowedOrigins - 허용할 origin을 정의 (* 로 모든 origin을 허용, 여러개도 지정가능)

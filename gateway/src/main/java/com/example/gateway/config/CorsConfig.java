@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 public class CorsConfig {
     private static final String ALLOWED_HEADERS = "x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN, token, username, client";
     private static final String ALLOWED_METHODS = "*";
-    private static final String ALLOWED_ORIGIN  = "*";
+    private static final String ALLOWED_ORIGIN  = "http://localhost:5173";
     private static final String ALLOWED_EXPOSE  = "*";
 
     @Bean
@@ -34,7 +34,7 @@ public class CorsConfig {
                 headers.add("Access-Control-Allow-Methods", ALLOWED_METHODS);
                 headers.add("Access-Control-Allow-Headers", ALLOWED_HEADERS);
                 headers.add("Access-Control-Expose-Headers", ALLOWED_EXPOSE);
-                //headers.add("Access-Control-Allow-Credentials", "true");
+                headers.add("Access-Control-Allow-Credentials", "true");
                 if (request.getMethod() == HttpMethod.OPTIONS) {
                     //log.info("메소드 유형 = {}", request.getMethod());
                     response.setStatusCode(HttpStatus.OK);
