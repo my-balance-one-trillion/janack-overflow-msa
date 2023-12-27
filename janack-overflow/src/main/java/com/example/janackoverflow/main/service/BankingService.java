@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.*;
+import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import javax.print.DocFlavor;
 import java.text.SimpleDateFormat;
@@ -48,28 +50,38 @@ public class BankingService {
     //에러 해결 시 적금
     public void transfer(int amount, String acntNum) throws JsonProcessingException {
 
-            String apiNm = "ReceivedTransferAccountNumber";
-            List<String> timeList = createTime();
-            ApiHeader apiHeader = new ApiHeader(iscd, accessToken, apiNm, timeList.get(0), timeList.get(1), createIsTuno());
 
-            ObjectMapper mapper = new ObjectMapper();
-            String headerJson = mapper.writeValueAsString(apiHeader);
+        String apiNm = "ReceivedTransferAccountNumber";
+        List<String> timeList = createTime();
+        ApiHeader apiHeader = new ApiHeader(iscd, accessToken, apiNm, timeList.get(0), timeList.get(1), createIsTuno());
 
-            HttpHeaders httpHeaders = new HttpHeaders();
-            httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-            JSONObject request = new JSONObject()
-                    .put("Header", new JSONObject(headerJson))
-                    .put("Acno", acntNum)
-                    .put("Bncd", "011")
-                    .put("Tram", Integer.toString(amount))
-                    .put("DractOtlt", "출금테스트")
-                    .put("MractOtlt", "입금테스트");
-            HttpEntity<String> httpEntity = new HttpEntity<>(request.toString(), httpHeaders);
-            System.out.println("httpEntity:" + httpEntity);
-            ResponseEntity<String> response = restTemplate.exchange(baseURL + apiNm + ".nh", HttpMethod.POST, httpEntity, String.class);
-            JSONObject jsonObject = new JSONObject(response.getBody());
-            System.out.println(jsonObject.toString());
+        ObjectMapper mapper = new ObjectMapper();
+        String headerJson = mapper.writeValueAsString(apiHeader);
 
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        JSONObject request = new JSONObject()
+                .put("Header", new JSONObject(headerJson))
+                .put("Acno", acntNum)
+                .put("Bncd", "011")
+                .put("Tram", Integer.toString(amount))
+                .put("DractOtlt", "출금테스트")
+                .put("MractOtlt", "입금테스트");
+
+        //WebClient
+        WebClient webClient = WebClient.builder()
+                .baseUrl(baseURL)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .build();
+
+        String res = webClient.post()
+                .uri(apiNm + ".nh")
+                .body(BodyInserters.fromValue(request.toString()))
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+        System.out.println("응답:"+res);
 
     }
 

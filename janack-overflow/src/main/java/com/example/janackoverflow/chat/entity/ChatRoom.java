@@ -1,6 +1,6 @@
 package com.example.janackoverflow.chat.entity;
 
-import com.example.janackoverflow.chat.config.WebSocketConfig;
+
 import com.example.janackoverflow.user.entity.Users;
 import jakarta.persistence.*;
 import lombok.*;
