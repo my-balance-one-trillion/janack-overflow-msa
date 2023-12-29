@@ -1,9 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen py-6 sm:py-12">
     <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-      <div class="absolute inset-0 bg-gradient-to-r 
-      from-green-700 to-red-600 shadow-lg transform 
-      -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+      <div class="absolute inset-0 transform -skew-y-6 shadow-lg bg-gradient-to-r from-green-700 to-red-600 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
       </div>
       
       <div class="relative px-4 py-10 shadow-lg bg-gray-50 sm:rounded-3xl sm:p-20">
@@ -18,9 +16,7 @@
                 <form>
                 <div class="relative">
                   <input autocomplete="off" id="email" name="email" type="text" v-model="state.input.email"
-                  class="focus:border-main-red focus:ouline-none focus:ring-0 peer placeholder-transparent bg-gray-50 h-10 w-full border-t-0 border-l-0 border-r-0 border-b-2
-                  border-red-700 text-gray-900
-                  focus:outline-none focus:borer-rose-600" 
+                  class="w-full h-10 text-gray-900 placeholder-transparent border-t-0 border-b-2 border-l-0 border-r-0 border-red-700 focus:border-main-red focus:ouline-none focus:ring-0 peer bg-gray-50 focus:outline-none focus:borer-rose-600" 
                   placeholder="Email" required/>
                   <label for="email" 
                   class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base 
@@ -33,8 +29,7 @@
                 <div class="relative">
                   <input
                   autocomplete="off" id="password" name="password" type="password" v-model="state.input.password"
-                  class="focus:border-main-red focus:ouline-none focus:ring-0 peer placeholder-transparent bg-gray-50 h-10 w-full border-t-0 border-l-0 border-r-0 border-b-2 
-                  border-red-700 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Password" required/>
+                  class="w-full h-10 text-gray-900 placeholder-transparent border-t-0 border-b-2 border-l-0 border-r-0 border-red-700 focus:border-main-red focus:ouline-none focus:ring-0 peer bg-gray-50 focus:outline-none focus:borer-rose-600" placeholder="Password" required/>
                   <label for="password" 
                   class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">패스워드</label>
                 </div>
@@ -68,8 +63,7 @@
                       <input
                       @input="formatPhone"
                       autocomplete="off" id="digit" name="digit" type="text" v-model="state.input.digit"
-                      class="focus:border-main-red focus:ouline-none focus:ring-0 peer placeholder-transparent bg-gray-50 h-10 w-full border-t-0 border-l-0 border-r-0 border-b-2 
-                      border-red-700 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Digit" required/>
+                      class="w-full h-10 text-gray-900 placeholder-transparent border-t-0 border-b-2 border-l-0 border-r-0 border-red-700 focus:border-main-red focus:ouline-none focus:ring-0 peer bg-gray-50 focus:outline-none focus:borer-rose-600" placeholder="Digit" required/>
                       <label for="digit" 
                       class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">전화번호</label>
                     </div>
@@ -221,7 +215,7 @@ export default {
         return false;
       }
 
-      const res = await axios.post('http://localhost:8081/signup', state.input, 
+      const res = await axios.post('/signup', state.input, 
         {
           headers : {
           "Content-Type": "application/json",

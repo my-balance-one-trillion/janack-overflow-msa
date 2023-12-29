@@ -18,4 +18,12 @@ export default defineConfig({
                 import.meta.url)),
         },
     },
+    build : {
+        outDir: "./../janack-overflow/src/main/resources/static",
+    },
+    server: {
+        proxy: {
+            "/main-service": "http://localhost:8081",
+        },
+    },
 });

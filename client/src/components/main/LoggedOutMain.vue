@@ -120,7 +120,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import axios from "axios";
-import MainPageCard from "./MainPageCard.vue";
+import MainPageCard from "@/components/main/MainPageCard.vue";
 
 const isNoContent = ref(false);
 const issueList = ref([]);

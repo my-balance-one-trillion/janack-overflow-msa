@@ -71,7 +71,7 @@
       <div class="text-4xl font-bold text-white">적금 생성하기</div>
     </router-link>
   </div>
-  <div class="flex justify-end w-9/12 mx-auto">
+  <div v-else class="flex justify-end w-9/12 mx-auto">
     <button class="rounded-[25px] bg-main-red hover:bg-hover-red text-white w-fit h-fit px-5 py-3"
       style="font-size: 21px">
       <router-link to="/issue">에러 등록</router-link>

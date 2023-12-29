@@ -92,10 +92,11 @@ public class SecurityConfig {
                                 .requestMatchers("/main-service/admin", "/main-service/admin/**").hasRole("ADMIN")
 
                                 //화이트 리스트
-                                .requestMatchers("/image/**", "/css/**", "/", "/main-service/login", "/main-service/signup", "/main-service/community/**", "/main-service/saving/**", "/main-service/savings/**", "/main-service/main/**", "/main-service/issue/**", "/ws/**", "/main-service/chatrooms/**").permitAll()
+                                .requestMatchers("/image/**", "/images/**", "/favicon.ico", "/assets/**", "/css/**", "/", "/main-service/login", "/main-service/signup", "/main-service/community/**", "/main-service/saving/**", "/main-service/savings/**", "/main-service/main/**", "/main-service/issue/**", "/ws/**", "/main-service/chatrooms/**").permitAll()
+
                                 
                                 //위에 작성된 url을 제외한 나머지는 인증절차 필요 (403 발생)
-                                .requestMatchers("/image/**", "/css/**", "/", "/main-service/login", "/main-service/logout", "/main-service/signup", "/mailPass", "/main-service/community/**", "/main-service/savings/**", "/main-service/main/**", "/main-service/issue/**", "/ws/**", "/main-service/chatrooms/**", "/message/**").permitAll()
+                                .requestMatchers("/image/**", "/images/**", "/favicon.ico", "/assets/**", "/css/**", "/", "/main-service/login", "/main-service/logout", "/main-service/signup", "/mailPass", "/main-service/community/**", "/main-service/savings/**", "/main-service/main/**", "/main-service/issue/**", "/ws/**", "/main-service/chatrooms/**", "/message/**").permitAll()
                                 .anyRequest().authenticated()
 
                 );

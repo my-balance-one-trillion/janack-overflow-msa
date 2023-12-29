@@ -198,7 +198,7 @@ function sendMessage() {
 }
 
 function connect() {
-  const serverURL = "http://192.168.3.102:8081/ws";
+  const serverURL = "http://localhost:8082/ws";
   let socket = new SockJS(serverURL);
   stompClient = Stomp.over(socket);
 
